@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -22,13 +22,27 @@ namespace Basics.Controllers
             return View();
         }
 
+        [Authorize(policy: "claim.DOB")]
+        public IActionResult SecretPolicy()
+        {
+            return View("Secret");
+        }
+
+        [Authorize(Roles="admin")]
+        public IActionResult SecretRole()
+        {
+            return View("Secret");
+        }
+
         public IActionResult Authenticate()
         {
             var grandmaClaims=new List<Claim>()
             {
                 new Claim(ClaimTypes.Name,"Bob"),
                 new Claim(ClaimTypes.Email,"Bob@gmail.com"),
-                new Claim("Grandma.Says","You are a good boi")
+                new Claim("Grandma.Says","You are a good boi"),
+                new Claim(ClaimTypes.DateOfBirth,DateTime.Now.ToString()),
+                new Claim(ClaimTypes.Role,"admin")
             };
 
             var licenseClaims=new List<Claim>()
