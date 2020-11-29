@@ -42,11 +42,23 @@ namespace Basics
                     policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
                 });
 
+                config.AddPolicy("Admin", policyBuilder =>
+                {
+                    policyBuilder.RequireClaim(ClaimTypes.Role, "Admin");
+                });
+
             });
 
             services.AddScoped<IAuthorizationHandler,CustomAuthorizationHandler>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages()
+                .AddRazorPagesOptions(config =>
+                {
+                    config.Conventions.AuthorizePage("/Razor/Secured");
+                    config.Conventions.AuthorizePage("/Razor/Policy", "Admin");
+                    //config.Conventions.AuthorizeFolder("/RazorSecured");
+                    //config.Conventions.AllowAnonymousToPage("/RazorSecured/Anon");
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

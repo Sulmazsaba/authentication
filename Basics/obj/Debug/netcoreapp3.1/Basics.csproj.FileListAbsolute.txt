@@ -30,3 +30,7 @@ D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Basics.csproj.
 D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Views\Home\Secret.cshtml.g.cs
 D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Basics.csprojAssemblyReference.cache
+D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\Razor\Index.cshtml.g.cs
+D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\Razor\Secured.cshtml.g.cs
+D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\Razor\Policy.cshtml.g.cs
+D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\RazorSecured\Anon.cshtml.g.cs

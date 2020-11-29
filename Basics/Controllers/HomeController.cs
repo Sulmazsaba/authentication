@@ -28,7 +28,7 @@ namespace Basics.Controllers
             return View("Secret");
         }
 
-        [Authorize(Roles="admin")]
+        [Authorize(Roles="Admin")]
         public IActionResult SecretRole()
         {
             return View("Secret");
@@ -41,8 +41,8 @@ namespace Basics.Controllers
                 new Claim(ClaimTypes.Name,"Bob"),
                 new Claim(ClaimTypes.Email,"Bob@gmail.com"),
                 new Claim("Grandma.Says","You are a good boi"),
+                new Claim(ClaimTypes.Role,"Admin"),
                 new Claim(ClaimTypes.DateOfBirth,DateTime.Now.ToString()),
-                new Claim(ClaimTypes.Role,"admin")
             };
 
             var licenseClaims=new List<Claim>()
