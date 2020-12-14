@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -50,7 +51,14 @@ namespace Basics
             });
 
             services.AddScoped<IAuthorizationHandler,CustomAuthorizationHandler>();
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews(config =>
+            {
+                var defaultAuthBuilder=new AuthorizationPolicyBuilder();
+                var policy = defaultAuthBuilder.RequireAuthenticatedUser().Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            });
+
             services.AddRazorPages()
                 .AddRazorPagesOptions(config =>
                 {

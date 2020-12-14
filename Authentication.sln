@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basics", "Basics\Basics.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityExample", "IdentityExample\IdentityExample.csproj", "{90338371-19E8-40AC-A188-9B72070B8C71}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basic", "basic", "{D3AF4C80-8B2C-4E9C-A4A6-D926C93D53E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "oauth", "oauth", "{512AAEE0-258A-4C79-BA3F-DB1C77C86B5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +28,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2770DDE2-603B-4DAC-86BE-4C3DEEB8608F} = {D3AF4C80-8B2C-4E9C-A4A6-D926C93D53E2}
+		{90338371-19E8-40AC-A188-9B72070B8C71} = {D3AF4C80-8B2C-4E9C-A4A6-D926C93D53E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8ABFBC0E-CB86-4475-82EA-580A18F8FF0C}

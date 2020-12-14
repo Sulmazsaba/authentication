@@ -1,6 +1,5 @@
 D:\.NetCoreProjects\Authentication\Basics\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\.NetCoreProjects\Authentication\Basics\bin\Debug\netcoreapp3.1\appsettings.json
-D:\.NetCoreProjects\Authentication\Basics\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\.NetCoreProjects\Authentication\Basics\bin\Debug\netcoreapp3.1\Basics.exe
 D:\.NetCoreProjects\Authentication\Basics\bin\Debug\netcoreapp3.1\Basics.deps.json
 D:\.NetCoreProjects\Authentication\Basics\bin\Debug\netcoreapp3.1\Basics.runtimeconfig.json
@@ -34,3 +33,4 @@ D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\Ra
 D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\Razor\Secured.cshtml.g.cs
 D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\Razor\Policy.cshtml.g.cs
 D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\Razor\Pages\RazorSecured\Anon.cshtml.g.cs
+D:\.NetCoreProjects\Authentication\Basics\obj\Debug\netcoreapp3.1\scopedcss\bundle\Basics.styles.css

@@ -11,6 +11,7 @@ namespace Basics.Controllers
 {
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
@@ -34,6 +35,7 @@ namespace Basics.Controllers
             return View("Secret");
         }
 
+        [AllowAnonymous]
         public IActionResult Authenticate()
         {
             var grandmaClaims=new List<Claim>()
@@ -57,6 +59,20 @@ namespace Basics.Controllers
 
             HttpContext.SignInAsync(new ClaimsPrincipal(new[]{grandmaIdentity,licenseIdentity}));
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> DoStuff([FromServices] IAuthorizationService authorizationService)
+        {
+            var builder = new AuthorizationPolicyBuilder("Schema");
+            var customPolicy = builder.RequireClaim("claim.DOB").Build();
+
+           var result= await authorizationService.AuthorizeAsync(HttpContext.User, customPolicy);
+           if(result.Succeeded)
+           {
+               return View("Index");
+           }
+
+           return View("Index");
         }
     }
 }
