@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace Basics.Transformers
 {
+    //execute every time user authenticated
     public class ClaimsTransformation : IClaimsTransformation
     {
         public Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
