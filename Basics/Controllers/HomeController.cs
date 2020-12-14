@@ -11,7 +11,7 @@ namespace Basics.Controllers
 {
     public class HomeController : Controller
     {
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
@@ -38,7 +38,7 @@ namespace Basics.Controllers
         [AllowAnonymous]
         public IActionResult Authenticate()
         {
-            var grandmaClaims=new List<Claim>()
+            var grandmaClaims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name,"Bob"),
                 new Claim(ClaimTypes.Email,"Bob@gmail.com"),
@@ -47,17 +47,17 @@ namespace Basics.Controllers
                 new Claim(ClaimTypes.DateOfBirth,DateTime.Now.ToString()),
             };
 
-            var licenseClaims=new List<Claim>()
+            var licenseClaims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name,"Bob Practor"),
                 new Claim("License Type","A2")
 
             };
 
-            var grandmaIdentity = new ClaimsIdentity(grandmaClaims,"grandam Identity");
-            var licenseIdentity=new ClaimsIdentity(licenseClaims,"License Identity");
+            var grandmaIdentity = new ClaimsIdentity(grandmaClaims, "grandam Identity");
+            var licenseIdentity = new ClaimsIdentity(licenseClaims, "License Identity");
 
-            HttpContext.SignInAsync(new ClaimsPrincipal(new[]{grandmaIdentity,licenseIdentity}));
+            HttpContext.SignInAsync(new ClaimsPrincipal(new[] { grandmaIdentity, licenseIdentity }));
             return RedirectToAction("Index");
         }
 

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Basics.AuthorizationRequirements;
+using Basics.Controllers;
+using Basics.Transformers;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +27,7 @@ namespace Basics
                     config =>
                     {
                         config.Cookie.Name = "Grandmas.Cookie";
-                        config.LoginPath = "/Home/Authenticate";
+                        config.LoginPath = "/Home/Index";
 
                     });
 
@@ -51,11 +54,14 @@ namespace Basics
             });
 
             services.AddScoped<IAuthorizationHandler,CustomAuthorizationHandler>();
+            services.AddScoped<IAuthorizationHandler,CookieJarAuthorizationHandler>();
+            services.AddScoped<IClaimsTransformation, ClaimsTransformation>();
 
             services.AddControllersWithViews(config =>
             {
                 var defaultAuthBuilder=new AuthorizationPolicyBuilder();
                 var policy = defaultAuthBuilder.RequireAuthenticatedUser().Build();
+                //globl authorization filter
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
 
